@@ -31,7 +31,7 @@
   {% if view == 'homepage-view' %}
   {% for page in featured_pages %}
     <div class="col-md-3 thumbnail-col featured-col">
-        <a href="{% url 'page-view' page.slug %}"><img class="img-fluid" src="{{ page.featured_image|thumbnail_url:'medium' }}" alt="{{ page.title }}">
+        <a href="{% url 'page-view' page.slug %}"><img class="img-fluid" src="{{ page.featured_image|thumbnail_url:'medium' }}" alt="{{ page.title }}" data-pin-nopin>
         <div class="featured-title"><span>{{ page.title }}</span></div>
         </a>
     </div>
@@ -41,7 +41,7 @@
   {% for photo in photos.all %}
     <div class="col-md-3 thumbnail-col infinite-item">
       <div data-toggle="modal" data-target="#modal" data-slide="#slide-{{ photo.pk }}">
-        <img class="img-fluid thumbnail-image" src="{{ photo.image|thumbnail_url:'medium' }}" alt="{{photo.title}}">
+        <img class="img-fluid thumbnail-image" src="{{ photo.image|thumbnail_url:'medium' }}" alt="{{photo.title}}" data-pin-nopin="true">
         <div class="thumbnail-title">{{ photo.title }}</div>
       </div>
     </div>
@@ -82,7 +82,7 @@
                 <div class="carousel-inner">
                   {% for photo in all_photos %}
                   <div id="slide-{{ photo.pk }}" class="carousel-item"  data-image="{{ photo.image|thumbnail_url:'carousel' }}" data-pk="{{ photo.pk }}" data-title="{{ photo.title }}" data-description="{{ photo.description }}" data-tags="{{ photo.tags }}" data-date="{{ photo.date }}" data-detail="{% url 'photo-detail' photo.pk %}" data-fb="https://www.facebook.com/sharer/sharer.php?u=https://{{request.META.HTTP_HOST}}{% url 'photo-detail' photo.pk %}&amp;src=sdkpreparse" data-gplus="https://plus.google.com/share?url=https://{{request.META.HTTP_HOST}}{% url 'photo-detail' photo.pk %}">
-                    <img class="carousel-image img-fluid" src="" alt="">
+                    <img class="carousel-image img-fluid" src="" alt=""/>
                   </div>
                   {% endfor %}
                 </div>
@@ -112,9 +112,9 @@
                   <div class="col-12">
                     <div class="social-icons">
                       <h3 class="h6">Share this post</h3>
-                      <a class="fb-xfbml-parse-ignore" target="popup"><i class="fab fa-facebook"></i></a>
-                      <a class="pin-button" href="https://www.pinterest.com/pin/create/button/" data-pin-do="buttonPin" data-pin-custom="true"><i class="fab fa-pinterest"></i></a>
-                      <i class="fab fa-google-plus"></i>
+                      <a class="facebook-share fb-xfbml-parse-ignore" target="popup"><i class="fab fa-facebook"></i></a>
+                      <a class="gplus-share" target="popup"><i class="fab fa-google-plus"></i></a>
+                      <a class="pinterest-share" href="https://www.pinterest.com/pin/create/button/"  target="popup" data-pin-do="buttonPin" data-pin-custom="true"><i class="fab fa-pinterest"></i></a>
                     </div>
                 </div>
                 <div class="row align-items-end h-100">
