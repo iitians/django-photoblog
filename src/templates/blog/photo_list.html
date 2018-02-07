@@ -81,7 +81,7 @@
               <div id="carouselControls" class="carousel" data-interval="false">
                 <div class="carousel-inner">
                   {% for photo in all_photos %}
-                  <div id="slide-{{ photo.pk }}" class="carousel-item"  data-image="{{ photo.image|thumbnail_url:'carousel' }}" data-pk="{{ photo.pk }}" data-title="{{ photo.title }}" data-description="{{ photo.description }}" data-tags="{{ photo.tags }}" data-date="{{ photo.date }}">
+                  <div id="slide-{{ photo.pk }}" class="carousel-item"  data-image="{{ photo.image|thumbnail_url:'carousel' }}" data-pk="{{ photo.pk }}" data-title="{{ photo.title }}" data-description="{{ photo.description }}" data-tags="{{ photo.tags }}" data-date="{{ photo.date }}" data-detail="{% url 'photo-detail' photo.pk %}">
                     <img class="carousel-image img-fluid" src="" alt="">
                   </div>
                   {% endfor %}
@@ -100,7 +100,8 @@
               <div class="container h-100">
                 <div class="row h-100">
                   <div class="col-12 h-75">
-                    <h2 class="photo-title"></h2>
+                    <h2 class="photo-title d-inline"></h2> <a class="photo-detail-link" href=""><i class="fas fa-external-link-alt"></i></a>
+                    <hr>
                     <p><span class="photo-date"></span></p>
                     <p><span class="photo-tags"></span></p>
                     <p class="photo-description"></p>

@@ -33,9 +33,11 @@ $('#modal').on('show.bs.modal', function (event) {
   var title = slide.data('title');
   var description = slide.data('description');
   var imageUrl = slide.data('image');
+  var detailUrl = slide.data('detail');
   var tags = slide.data('tags');
   var date = slide.data('date');
   ($('.photo-title')).text(title);
+  ($('.photo-detail-link')).attr('href', detailUrl);
   ($('.photo-description')).text(description);
   ($('.photo-tags')).text(tags);
   ($('.photo-date')).text(date);
@@ -63,9 +65,11 @@ $('#carouselControls').on('slide.bs.carousel', function (event) {
   var title = relatedTarget.data('title');
   var description = relatedTarget.data('description');
   var imageUrl = relatedTarget.data('image');
+  var detailUrl = relatedTarget.data('detail');
   var tags = relatedTarget.data('tags');
   var date = relatedTarget.data('date');
   ($('.photo-title')).text(title);
+  ($('.photo-detail-link')).attr('href', detailUrl);
   ($('.photo-description')).text(description);
   ($('.photo-tags')).text(tags);
   ($('.photo-date')).text(date);

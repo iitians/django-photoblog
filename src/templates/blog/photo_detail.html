@@ -1,0 +1,44 @@
+{% extends 'website/base.html' %}
+{% load thumbnail %}
+
+{% block meta %}
+<title>{{ page_title }}</title>
+{% if page_description %}<meta name="description" content="{{ page_description }}"/>{% endif %}
+{% endblock meta %} 
+
+{% block content %}
+<div class="row no-gutters">
+  <div class="col photo-detail">
+      <div class="row">
+        <div class="col-md-8">
+        	<img class="carousel-image img-fluid" src="{{ photo.image|thumbnail_url:'carousel' }}" alt="">
+        </div>
+        <div class="col-md-4 photo-info">
+          <div class="container h-100">
+            <div class="row h-100">
+              <div class="col-12 h-75">
+                <h2 class="photo-title">{{ photo.title }}</h2>
+                <hr class="my-0">
+                <p><span class="photo-date">{{ photo.date }}</span></p>
+                <p><span class="photo-tags">{{ photo.tags }}</span></p>
+                <p class="photo-description">{{ photo.description }}</p>
+                <a href="{% url 'homepage-view' %}#slide-{{photo.pk}}" role="button" class="btn btn-outline-dark"><i class="far fa-images"></i> Gallery View</a>
+              </div>
+              <div class="col-12">
+                <div class="social-icons">
+                  <i class="fab fa-facebook"></i>
+                  <i class="fab fa-instagram"></i>
+                  <i class="fab fa-pinterest"></i>
+                  <i class="fab fa-google-plus"></i>
+                </div>
+                {% if request.user.is_superuser %}
+                  <a class="edit-link" href="{% url 'admin:blog_photo_change' photo.pk %}" target="_blank">Edit photo</a>
+                {% endif %}
+        	  </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+{% endblock content %}
