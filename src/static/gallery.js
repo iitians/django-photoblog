@@ -45,7 +45,7 @@ $('#modal').on('show.bs.modal', function (event) {
   ($('.edit-link')).attr('href', '/admin/blog/photo/' + pk + '/change/');
   ($('.fb-xfbml-parse-ignore')).on('click', function(){window.open(fb,'popup','width=600,height=500'); return false;});
   ($('.fb-xfbml-parse-ignore')).attr('href', fb);
-  ($('.pin-button')).attr('media', location.protocol + '//' + document.domain + imageUrl);
+  ($('.pin-button')).attr('media', imageUrl);
   slide.addClass('active');
   slide.find('.carousel-image').attr('src', imageUrl);
   slide.find('.carousel-image').attr('alt', title);
