@@ -41,7 +41,7 @@
   {% for photo in photos.all %}
     <div class="col-md-3 thumbnail-col infinite-item">
       <div data-toggle="modal" data-target="#modal" data-slide="#slide-{{ photo.pk }}">
-        <img class="img-fluid thumbnail-image" src="{{ photo.image|thumbnail_url:'medium' }}" alt="Hello, World!">
+        <img class="img-fluid thumbnail-image" src="{{ photo.image|thumbnail_url:'medium' }}" alt="{{photo.title}}">
         <div class="thumbnail-title">{{ photo.title }}</div>
       </div>
     </div>
