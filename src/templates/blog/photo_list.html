@@ -101,9 +101,9 @@
                 <div class="row h-100">
                   <div class="col-12 h-75">
                     <h2 class="photo-title d-inline"></h2> <a class="photo-detail-link" href=""><i class="fas fa-external-link-alt"></i></a>
-                    <hr>
+                    <hr class="my-1">
                     <p><span class="photo-date"></span></p>
-                    <p><span class="photo-tags"></span></p>
+                    <p># <span class="photo-tags"></span></p>
                     <p class="photo-description"></p>
                     {% if request.user.is_superuser %}
                       <a class="edit-link" href="" target="_blank">Edit photo</a>
@@ -111,6 +111,7 @@
                   </div>
                   <div class="col-12">
                     <div class="social-icons">
+                      <h3 class="h6">Share this post</h3>
                       <i class="fab fa-facebook"></i>
                       <i class="fab fa-instagram"></i>
                       <i class="fab fa-pinterest"></i>

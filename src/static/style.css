@@ -212,9 +212,10 @@ body {
 
 .gallery-modal .photo-info .photo-tags,
 .photo-detail .photo-info .photo-tags {
+    font-family: 'Ubuntu Condensed', sans-serif;
+    font-size: 0.9em;
+    letter-spacing: 0.2px;
     text-transform: uppercase;
-    font-size: 0.8em;
-    letter-spacing: 1.2px;
 }
 
 .gallery-modal .photo-info .photo-description,
@@ -228,6 +229,27 @@ body {
 .photo-detail .photo-info .social-icons {
     border-top: 1px solid rgba(0,0,0,.1);
     font-size: 2em;
+}
+
+.gallery-modal .photo-info .social-icons a,
+.photo-detail .photo-info .social-icons a {
+    color: #333;
+    cursor: pointer;
+}
+
+.gallery-modal .photo-info .social-icons a:hover,
+.photo-detail .photo-info .social-icons a:hover {
+    color: #000;
+    cursor: pointer;
+}
+
+.gallery-modal .photo-info .social-icons h3,
+.photo-detail .photo-info .social-icons h3 {
+    color: #333;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    font-size: 0.6em;
+    margin-bottom: 0;
+    margin-top: 0.2em;
 }
 
 
