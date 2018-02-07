@@ -73,6 +73,7 @@ $('#carouselControls').on('slide.bs.carousel', function (event) {
   var title = relatedTarget.data('title');
   var description = relatedTarget.data('description');
   var imageUrl = relatedTarget.data('image');
+  var fullImageUrl = relatedTarget.data('full-image');
   var detailUrl = relatedTarget.data('detail');
   var tags = relatedTarget.data('tags');
   var date = relatedTarget.data('date');
@@ -88,7 +89,7 @@ $('#carouselControls').on('slide.bs.carousel', function (event) {
   ($('.facebook-share')).attr('href', fb);
   ($('.gplus-share')).attr('href', gplus);
   ($('.pinterest-share')).attr('data-pin-url', detailUrl);
-  ($('.pinterest-share')).attr('data-pin-media', imageUrl);  
+  ($('.pinterest-share')).attr('data-pin-media', fullImageUrl);  
   var carouselImage = relatedTarget.find('.carousel-image');
   carouselImage.attr('src', imageUrl);
   carouselImage.attr('alt', title);
