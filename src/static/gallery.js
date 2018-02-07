@@ -33,6 +33,7 @@ $('#modal').on('show.bs.modal', function (event) {
   var title = slide.data('title');
   var description = slide.data('description');
   var imageUrl = slide.data('image');
+  var fullImageUrl = slide.data('full-image');
   var detailUrl = slide.data('detail');
   var tags = slide.data('tags');
   var date = slide.data('date');
@@ -48,7 +49,7 @@ $('#modal').on('show.bs.modal', function (event) {
   ($('.facebook-share')).attr('href', fb);
   ($('.gplus-share')).attr('href', gplus);
   ($('.pinterest-share')).attr('data-pin-url', detailUrl);
-  ($('.pinterest-share')).attr('data-pin-media', imageUrl);
+  ($('.pinterest-share')).attr('data-pin-media', fullImageUrl);
   slide.addClass('active');
   slide.find('.carousel-image').attr('src', imageUrl);
   slide.find('.carousel-image').attr('alt', title);
