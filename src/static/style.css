@@ -261,6 +261,9 @@ body {
     background-color: #fff;
 }
 
+.photo-detail .carousel-image {
+    max-height: calc(100vh - 75px);
+}
 
 /* Page View */
 
