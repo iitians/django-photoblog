@@ -81,7 +81,7 @@
               <div id="carouselControls" class="carousel" data-interval="false">
                 <div class="carousel-inner">
                   {% for photo in all_photos %}
-                  <div id="slide-{{ photo.pk }}" class="carousel-item"  data-image="{{ photo.image|thumbnail_url:'carousel' }}" data-pk="{{ photo.pk }}" data-title="{{ photo.title }}" data-description="{{ photo.description }}" data-tags="{{ photo.tags }}" data-date="{{ photo.date }}" data-detail="{% url 'photo-detail' photo.pk %}">
+                  <div id="slide-{{ photo.pk }}" class="carousel-item"  data-image="{{ photo.image|thumbnail_url:'carousel' }}" data-pk="{{ photo.pk }}" data-title="{{ photo.title }}" data-description="{{ photo.description }}" data-tags="{{ photo.tags }}" data-date="{{ photo.date }}" data-detail="{% url 'photo-detail' photo.pk %}" data-fb="https://www.facebook.com/sharer/sharer.php?u=https://{{request.META.HTTP_HOST}}{% url 'photo-detail' photo.pk %}&amp;src=sdkpreparse" data-gplus="https://plus.google.com/share?url=https://{{request.META.HTTP_HOST}}{% url 'photo-detail' photo.pk %}">
                     <img class="carousel-image img-fluid" src="" alt="">
                   </div>
                   {% endfor %}
@@ -112,9 +112,8 @@
                   <div class="col-12">
                     <div class="social-icons">
                       <h3 class="h6">Share this post</h3>
-                      <i class="fab fa-facebook"></i>
-                      <i class="fab fa-instagram"></i>
-                      <i class="fab fa-pinterest"></i>
+                      <a class="fb-xfbml-parse-ignore" target="popup"><i class="fab fa-facebook"></i></a>
+                      <a class="pin-button" href="https://www.pinterest.com/pin/create/button/" data-pin-do="buttonPin" data-pin-custom="true" media=""><i class="fab fa-pinterest"></i></a>
                       <i class="fab fa-google-plus"></i>
                     </div>
                 </div>

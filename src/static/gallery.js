@@ -36,12 +36,16 @@ $('#modal').on('show.bs.modal', function (event) {
   var detailUrl = slide.data('detail');
   var tags = slide.data('tags');
   var date = slide.data('date');
+  var fb = slide.data('fb');
   ($('.photo-title')).text(title);
   ($('.photo-detail-link')).attr('href', detailUrl);
   ($('.photo-description')).text(description);
   ($('.photo-tags')).text(tags);
   ($('.photo-date')).text(date);
-  ($('.edit-link')).attr('href', '/admin/blog/photo/' + pk + '/change/')
+  ($('.edit-link')).attr('href', '/admin/blog/photo/' + pk + '/change/');
+  ($('.fb-xfbml-parse-ignore')).on('click', function(){window.open(fb,'popup','width=600,height=500'); return false;});
+  ($('.fb-xfbml-parse-ignore')).attr('href', fb);
+  ($('.pin-button')).attr('media', location.protocol + '//' + document.domain + imageUrl);
   slide.addClass('active');
   slide.find('.carousel-image').attr('src', imageUrl);
   slide.find('.carousel-image').attr('alt', title);
