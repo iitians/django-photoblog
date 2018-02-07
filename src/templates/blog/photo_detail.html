@@ -28,7 +28,7 @@
                 <div class="social-icons">
                   <h3 class="h6">Share this post</h3>
                   <a class="fb-xfbml-parse-ignore" target="popup" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=https://{{request.META.HTTP_HOST}}{% url 'photo-detail' photo.pk %}&amp;src=sdkpreparse','popup','width=600,height=500'); return false; " href="https://www.facebook.com/sharer/sharer.php?u=https://{{request.META.HTTP_HOST}}{% url 'photo-detail' photo.pk %}&amp;src=sdkpreparse'"><i class="fab fa-facebook-square"></i></a>
-                  <a href="https://plus.google.com/share?url=https://{{request.META.HTTP_HOST}}{% url 'photo-detail' photo.pk %}" target="popup"><i class="fab fa-google-plus"></i></a>
+                  <a href="https://plus.google.com/share?url=https://{{request.META.HTTP_HOST}}{% url 'photo-detail' photo.pk %}" target="popup"><i class="fab fa-google-plus-square"></i></a>
                   <a href="https://www.pinterest.com/pin/create/button/"  target="popup" data-pin-custom="true" data-pin-do="buttonPin" data-pin-media="{{ photo.image.url }}" data-pin-url="{% url 'photo-detail' photo.pk %}"><i class="fab fa-pinterest-square"></i></a>
                 </div>
                 {% if request.user.is_superuser %}
