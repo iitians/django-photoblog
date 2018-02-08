@@ -365,3 +365,7 @@ body {
 .social-footer a:hover {
     color: #000;
 }
+
+.pinterest-share img {
+    margin-top: -4px;
+}

@@ -48,8 +48,8 @@ $('#modal').on('show.bs.modal', function (event) {
   ($('.facebook-share')).on('click', function(){window.open(fb,'popup','width=600,height=500'); return false;});
   ($('.facebook-share')).attr('href', fb);
   ($('.gplus-share')).attr('href', gplus);
-  ($('.pinterest-share')).attr('data-pin-url', detailUrl);
   ($('.pinterest-share')).attr('data-pin-media', fullImageUrl);
+  ($('.pinterest-share')).attr('data-pin-url', detailUrl);
   slide.addClass('active');
   slide.find('.carousel-image').attr('src', imageUrl);
   slide.find('.carousel-image').attr('alt', title);
@@ -89,7 +89,7 @@ $('#carouselControls').on('slide.bs.carousel', function (event) {
   ($('.facebook-share')).attr('href', fb);
   ($('.gplus-share')).attr('href', gplus);
   ($('.pinterest-share')).attr('data-pin-url', detailUrl);
-  ($('.pinterest-share')).attr('data-pin-media', fullImageUrl);  
+  ($('.pinterest-share')).attr('data-pin-media', fullImageUrl);
   var carouselImage = relatedTarget.find('.carousel-image');
   carouselImage.attr('src', imageUrl);
   carouselImage.attr('alt', title);
