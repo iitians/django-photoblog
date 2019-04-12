@@ -33,7 +33,7 @@
                   <a class="pinterest-share" href="https://www.pinterest.com/pin/create/button/" data-pin-custom="true" data-pin-do="buttonPin" data-pin-media="{{ photo.image.url }}" data-pin-url="{% url 'photo-detail' photo.pk %}"><img src="{% static 'pin.png' %}" alt="Pin it!"></a>
                 </div>
                 {% if request.user.is_superuser %}
-                  <a class="edit-link" href="{% url 'admin:blog_photo_change' photo.pk %}" target="_blank">Edit photo</a>
+                  <a class="edit-link" href="{% url 'admin:blog_imagepost_change' photo.pk %}" target="_blank">Edit photo</a>
                 {% endif %}
         	  </div>
             </div>
