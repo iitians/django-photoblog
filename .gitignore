@@ -108,3 +108,4 @@ static-root
 media
 *.sqlite3
 .fuse_*
+.idea/
