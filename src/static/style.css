@@ -154,7 +154,8 @@ body {
 
 /* Gallery: Modal Window */
 
-.gallery-modal {
+.gallery-modal,
+.photo-detail {
     text-align: center;
     width: 100%;
     background-color:rgba(0,0,0,0.5);
@@ -178,43 +179,76 @@ body {
     border: none;
 }
 
-.gallery-modal .modal-header, .modal-footer {
+.gallery-modal .modal-header,
+.modal-footer {
     border: none;
 }
 
-.gallery-modal .photo-info {
+.gallery-modal .photo-info,
+.photo-detail .photo-info {
     text-align: left;
     font-size: 0.8em;
     padding: 2.5em 4em 2em 1em;
 }
 
-.gallery-modal .photo-info .photo-date {
+.gallery-modal .photo-info .photo-date,
+.photo-detail .photo-info .photo-date {
     font-size: 0.7em;
 }
 
-.gallery-modal .photo-info .photo-title {
+.gallery-modal .photo-info .photo-title,
+.photo-detail .photo-info .photo-title {
     font-size: 1.2em;
     font-weight: 700;
-    border-bottom: 1px solid rgba(0,0,0,.1);
     padding-bottom: .5em;
     margin-bottom: 0;
 }
 
-.gallery-modal .photo-info .photo-tags {
-    text-transform: uppercase;
-    font-size: 0.8em;
-    letter-spacing: 1.2px;
+.gallery-modal .photo-detail-link {
+    margin-left: 0.3em;
+    color: #333;
 }
 
-.gallery-modal .photo-info .photo-description {
+.gallery-modal .photo-info .photo-tags,
+.photo-detail .photo-info .photo-tags {
+    font-family: 'Ubuntu Condensed', sans-serif;
+    font-size: 0.9em;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+}
+
+.gallery-modal .photo-info .photo-description,
+.photo-detail .photo-info .photo-description {
     font-style: italic;
     font-size: 1.5em;
     letter-spacing: 1.2px;
 }
 
-.gallery-modal .photo-info .social-icons {
+.gallery-modal .photo-info .social-icons,
+.photo-detail .photo-info .social-icons {
     border-top: 1px solid rgba(0,0,0,.1);
     font-size: 2em;
+}
+
+.gallery-modal .photo-info .social-icons a,
+.photo-detail .photo-info .social-icons a {
+    color: #333;
+    cursor: pointer;
+}
+
+.gallery-modal .photo-info .social-icons a:hover,
+.photo-detail .photo-info .social-icons a:hover {
+    color: #000;
+    cursor: pointer;
+}
+
+.gallery-modal .photo-info .social-icons h3,
+.photo-detail .photo-info .social-icons h3 {
+    color: #333;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    font-size: 0.6em;
+    margin-bottom: 0;
+    margin-top: 0.2em;
 }
 
 
@@ -240,6 +274,18 @@ body {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' stroke='%23000' stroke-width='0.4' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
 }
 
+
+/* Photo Detail */
+
+.photo-detail {
+    padding: 0;
+    background-color: #fff;
+}
+
+.photo-detail .carousel-image {
+    padding-top: 1em;
+    max-height: calc(100vh - 75px);
+}
 
 /* Page View */
 
@@ -317,4 +363,8 @@ body {
 
 .social-footer a:hover {
     color: #000;
+}
+
+.pinterest-share img {
+    margin-top: -4px;
 }

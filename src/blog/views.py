@@ -71,6 +71,19 @@ class HomepageView(ListView):
         return context
 
 
+class PhotoView(DetailView):
+    model = Photo
+    context_object_name = 'photo'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['view'] = 'photo-detail'
+        context['page_title'] = self.object.title
+        if self.object.description:
+            context['page_description'] = self.object.description
+        return context
+
+
 class TagView(TaggedObjectList):
     model = ImagePost
     context_object_name = 'photos'
