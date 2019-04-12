@@ -11,6 +11,12 @@
 {% block content %}
 <div class="row no-gutters gallery infinite-container">
   <div class="col-md-3 align-self-center tag-cloud">
+    <h5 class="text-muted">Categories</h5>
+    {% for category in image_categories %}
+      <a class="tag {% if category.slug in request.path %}active{% endif %}" href="{% url 'category-view' slug=category.slug %}">{{ category.name }}</a>
+    {% endfor %}
+
+    <h5 class="text-muted mt-3">Tags</h5>
     {% for tag_ in tag_cloud %}
       <a class="tag {% if tag_ == tag %}active{% endif %}" style="font-size:{{ tag_.font_size|add:8 }}px" href="{% url 'tag-view' tag=tag_ %}">{{ tag_ }}</a>
     {% endfor %}

@@ -13,6 +13,7 @@ class ImagePost(models.Model):
     image = ThumbnailerImageField()
     description = models.TextField(blank=True, null=True)
     tags = TagField()
+    category = models.ForeignKey('ImageCategory', null=True, on_delete=models.SET_NULL)
 
     def save(self, *args, **kwargs):
         if not self.date:
@@ -24,6 +25,20 @@ class ImagePost(models.Model):
 
     class Meta:
         ordering = ('-date',)
+
+
+class ImageCategory(models.Model):
+    name = models.CharField(max_length=200)
+    slug = models.SlugField()
+    description = models.TextField(blank=True, null=True)
+    show_in_menu = models.BooleanField(default=True)
+    menu_position = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        ordering = ('menu_position',)
 
 
 class Page(models.Model):

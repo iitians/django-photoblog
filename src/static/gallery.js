@@ -39,7 +39,7 @@ $('#modal').on('show.bs.modal', function (event) {
   ($('.photo-description')).text(description);
   ($('.photo-tags')).text(tags);
   ($('.photo-date')).text(date);
-  ($('.edit-link')).attr('href', '/admin/blog/photo/' + pk + '/change/')
+  ($('.edit-link')).attr('href', '/admin/blog/imagepost/' + pk + '/change/')
   slide.addClass('active');
   slide.find('.carousel-image').attr('src', imageUrl);
   slide.find('.carousel-image').attr('alt', title);

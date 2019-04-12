@@ -47,6 +47,13 @@ class HomepageView(ListView):
     context_object_name = 'photos'
     paginate_by = 10
 
+    def get_queryset(self):
+        try:
+            queryset = ImagePost.objects.filter(category__slug=self.kwargs['slug'])
+        except KeyError:
+            queryset = ImagePost.objects.all()
+        return queryset
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['view'] = 'homepage-view'

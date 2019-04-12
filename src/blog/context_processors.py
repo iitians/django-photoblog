@@ -1,6 +1,6 @@
 from django.conf import settings
 
-from .models import Page
+from .models import Page, ImageCategory
 
 
 def config_processor(request):
@@ -24,4 +24,7 @@ def config_processor(request):
 
 
 def nav_processor(request):
-    return {'nav_items': Page.objects.filter(show_in_menu=True)}
+    return {
+        'nav_items': Page.objects.filter(show_in_menu=True),
+        'image_categories': ImageCategory.objects.filter(show_in_menu=True)
+    }
