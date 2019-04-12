@@ -37,6 +37,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEBUG = config('DEBUG', default=False, cast=bool)
 SECRET_KEY = config('SECRET_KEY')
 # SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SITE_ID = 1
 
 
 # Database
