@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Page, Photo
+from .models import Page, ImagePost
 
 admin.site.register(Page)
-admin.site.register(Photo)
+admin.site.register(ImagePost)

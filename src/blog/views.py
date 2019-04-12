@@ -7,12 +7,12 @@ from tagging.models import Tag
 from tagging.utils import LOGARITHMIC
 from tagging.views import TaggedObjectList
 
-from .models import Page, Photo
+from .models import Page, ImagePost
 
 
 def generate_tag_cloud(nolimit=False):
     cloud = Tag.objects.cloud_for_model(
-        Photo,
+        ImagePost,
         steps=9,
         distribution=LOGARITHMIC,
         filters=None,
@@ -30,7 +30,7 @@ def generate_tag_cloud(nolimit=False):
 def generate_related_tags(tag):
     tags = Tag.objects.related_for_model(
         tag,
-        Photo,
+        ImagePost,
         counts=True,
         min_count=None)
     limit = settings.RELATED_TAGS_LIMIT
@@ -43,7 +43,7 @@ def generate_related_tags(tag):
 
 
 class HomepageView(ListView):
-    model = Photo
+    model = ImagePost
     context_object_name = 'photos'
     paginate_by = 10
 
@@ -59,13 +59,13 @@ class HomepageView(ListView):
         elif settings.BLOG_DESCRIPTION:
             context['page_description'] = settings.BLOG_DESCRIPTION
         context['featured_pages'] = Page.objects.filter(homepage_featured=True)
-        context['all_photos'] = Photo.objects.all()
+        context['all_photos'] = ImagePost.objects.all()
         context['tag_cloud'] = generate_tag_cloud()
         return context
 
 
 class TagView(TaggedObjectList):
-    model = Photo
+    model = ImagePost
     context_object_name = 'photos'
     paginate_by = 10
     allow_empty = True
@@ -74,7 +74,7 @@ class TagView(TaggedObjectList):
         context = super().get_context_data(**kwargs)
         context['view'] = 'tag-view'
         context['page_title'] = '#{} photos'.format(self.tag)
-        context['all_photos'] = Photo.objects.all()
+        context['all_photos'] = ImagePost.objects.all()
         context['page_description'] = 'Photos tagged with #{}'.format(self.tag)
         context['tag_cloud'] = generate_tag_cloud()
         context['related_tags'] = generate_related_tags(self.tag)

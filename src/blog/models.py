@@ -6,7 +6,7 @@ from easy_thumbnails.fields import ThumbnailerImageField
 from tagging.fields import TagField
 
 
-class Photo(models.Model):
+class ImagePost(models.Model):
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     date = models.DateTimeField('published date', blank=True)
     title = models.CharField(max_length=200)
