@@ -56,7 +56,11 @@ class HomepageView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['view'] = 'homepage-view'
+        try:
+            if self.kwargs['slug']:
+                context['view'] = 'category-view'
+        except KeyError:
+            context['view'] = 'homepage-view'
         if settings.SEO_BLOG_TITLE:
             context['page_title'] = settings.SEO_BLOG_TITLE
         else:
