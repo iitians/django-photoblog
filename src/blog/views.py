@@ -7,7 +7,7 @@ from tagging.models import Tag
 from tagging.utils import LOGARITHMIC
 from tagging.views import TaggedObjectList
 
-from .models import Page, ImagePost
+from .models import Page, ImagePost, ImageCategory
 
 
 def generate_tag_cloud(nolimit=False):
@@ -47,20 +47,9 @@ class HomepageView(ListView):
     context_object_name = 'photos'
     paginate_by = 10
 
-    def get_queryset(self):
-        try:
-            queryset = ImagePost.objects.filter(category__slug=self.kwargs['slug'])
-        except KeyError:
-            queryset = ImagePost.objects.all()
-        return queryset
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        try:
-            if self.kwargs['slug']:
-                context['view'] = 'category-view'
-        except KeyError:
-            context['view'] = 'homepage-view'
+        context['view'] = 'homepage-view'
         if settings.SEO_BLOG_TITLE:
             context['page_title'] = settings.SEO_BLOG_TITLE
         else:
@@ -104,6 +93,26 @@ class TagView(TaggedObjectList):
         context['related_tags'] = generate_related_tags(self.tag)
         return context
 
+
+class CategoryView(ListView):
+    model = ImagePost
+    context_object_name = 'photos'
+    paginate_by = 10
+    allow_empty = True
+
+    def get_queryset(self):
+        queryset = ImagePost.objects.filter(category__slug=self.kwargs['slug'])
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['category'] = ImageCategory.objects.get(slug=self.kwargs['slug'])
+        context['view'] = 'category-view'
+        context['page_title'] = '{}'.format(context['category'])
+        context['all_photos'] = ImagePost.objects.filter(category__slug=self.kwargs['slug'])
+        context['page_description'] = '{}'.format(context['category'])
+        context['tag_cloud'] = generate_tag_cloud()
+        return context
 
 class PageView(DetailView):
     model = Page
