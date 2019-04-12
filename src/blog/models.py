@@ -33,6 +33,7 @@ class ImageCategory(models.Model):
     description = models.TextField(blank=True, null=True)
     show_in_menu = models.BooleanField(default=True)
     menu_position = models.IntegerField(default=0)
+    exclude_from_homepage = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name

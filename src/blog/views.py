@@ -47,6 +47,10 @@ class HomepageView(ListView):
     context_object_name = 'photos'
     paginate_by = 10
 
+    def get_queryset(self):
+        queryset = ImagePost.objects.filter(category__exclude_from_homepage=False)
+        return queryset
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['view'] = 'homepage-view'
@@ -59,7 +63,7 @@ class HomepageView(ListView):
         elif settings.BLOG_DESCRIPTION:
             context['page_description'] = settings.BLOG_DESCRIPTION
         context['featured_pages'] = Page.objects.filter(homepage_featured=True)
-        context['all_photos'] = ImagePost.objects.all()
+        context['all_photos'] = ImagePost.objects.filter(category__exclude_from_homepage=False)
         context['tag_cloud'] = generate_tag_cloud()
         return context
 
