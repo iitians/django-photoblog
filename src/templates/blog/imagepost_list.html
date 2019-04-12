@@ -34,6 +34,17 @@
   </div>
   {% endif %}
 
+  {% if view == 'category-view' %}
+  <div class="col-md-3 heading-col align-self-center">
+    <h1>{{ category.name }}</h1>
+    <hr>
+    <p>{{ category.description }}</p>
+    {% if request.user.is_superuser %}
+       <a href="{% url 'admin:blog_imagecategory_change' category.pk %}" target="_blank">Edit category</a>
+    {% endif %}
+  </div>
+  {% endif %}
+
   {% if view == 'homepage-view' %}
   {% for page in featured_pages %}
     <div class="col-md-3 thumbnail-col featured-col">
