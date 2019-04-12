@@ -72,7 +72,7 @@ class HomepageView(ListView):
 
 
 class PhotoView(DetailView):
-    model = Photo
+    model = ImagePost
     context_object_name = 'photo'
 
     def get_context_data(self, **kwargs):

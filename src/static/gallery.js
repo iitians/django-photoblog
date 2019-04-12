@@ -44,7 +44,7 @@ $('#modal').on('show.bs.modal', function (event) {
   ($('.photo-description')).text(description);
   ($('.photo-tags')).text(tags);
   ($('.photo-date')).text(date);
-  ($('.edit-link')).attr('href', '/admin/blog/imagepost/' + pk + '/change/')
+  ($('.edit-link')).attr('href', '/admin/blog/imagepost/' + pk + '/change/');
   ($('.facebook-share')).on('click', function(){window.open(fb,'popup','width=600,height=500'); return false;});
   ($('.facebook-share')).attr('href', fb);
   ($('.gplus-share')).attr('href', gplus);
