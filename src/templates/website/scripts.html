@@ -9,7 +9,7 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/shortcuts/infinite.min.js"></script>
 
-{% if view in 'homepage-view|tag-view'  %}
+{% if view in 'homepage-view|tag-view|category-view'  %}
 <script>
   var infinite = new Waypoint.Infinite({
     element: $('.infinite-container')[0],
@@ -36,6 +36,6 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
-{% if view in 'homepage-view|tag-view'  %}
+{% if view in 'homepage-view|tag-view|category-view'  %}
 <script type="text/javascript" src="{% static 'gallery.js' %}"></script>
 {% endif %}
